@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>79521980-3</RutEmisor>
+      <RutEnvia>6315048-7</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-08-30T14:40:02</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F573">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>573</Folio>
+        <FchEmis>2016-08-30</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>79521980-3</RUTEmisor>
+        <RznSoc>CARLOS VALENZUELA Y COMPAÑIA LIMITADA</RznSoc>
+        <GiroEmis>Distribución de Insumos Agrícolas - Ferreteria - Corretaje Consignaciones - Pr</GiroEmis>
+        <Acteco>14019</Acteco>
+        <DirOrigen>Huamachuco # 713, San Clemente</DirOrigen>
+        <CmnaOrigen> </CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>96610150-4</RUTRecep>
+        <RznSocRecep>SAKATA SEED CHILE S.A</RznSocRecep>
+        <GiroRecep>EXPLOTACION DE VIVEROS</GiroRecep>
+        <DirRecep>PARCELA 4 SITIO 19 LAS LOMAS</DirRecep>
+        <CmnaRecep>SAN CLEMENTE</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>77154</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>14659</IVA>
+        <MntTotal>91813</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>MANCOZEB 800 WP (25 KGS)</NmbItem>
+      <QtyItem>25</QtyItem>
+      <PrcItem>3086</PrcItem>
+      <MontoItem>77154</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>79521980-3</RE>
+    <TD>33</TD>
+    <F>573</F>
+    <FE>2016-08-30</FE>
+    <RR>96610150-4</RR>
+    <RSR>SAKATA SEED CHILE S.A</RSR>
+    <MNT>91813</MNT>
+    <IT1>MANCOZEB 800 WP (25 KGS)</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>79521980-3</RE>
+<RS>CARLOS VALENZUELA Y COMPANIA LIMITADA</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-07-31</FA>
+<RSAPK><M>xLjscGiG7xU/WR40io3RunagXX1e8R3BeJhhlWnpRrJPQWWOz2jtlmkcbJQcVxpnIpvKy9iVo62maSzFBU4sXw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">VtQceqBtMopBw44HkP/y3zye6LjBtMpORCskl3o37sd35juKlKGmILBE3CBLsExwZDVj4IukRbhCtn7sHZ8s9A==</FRMA>
+</CAF>
+    <TSTED>2016-08-30T14:40:02</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">EHAsmG7+waTmvvsY9nVaFCafoDsGjkGG1FZ2SkshbJWEzW6h5Db/kWXxy8xJs0rL+0mvBlbyTy3baSyLZ0xGXQ==</FRMT>
+</TED>
+  <TmstFirma>2016-08-30T14:40:02</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F573"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>kS5vBcNw/CVJT1NRlEGnNZTA+Jk=</DigestValue></Reference></SignedInfo><SignatureValue>yG905uEtBvUTt5OWJ/1RP7pxk47VQnR6i2RYYosRCSfPOVku3ijUCo9yqTDlFo63
+91CgnvOW5PipmJ9LyN39GZtbGMRLNrMsIqkEbbQ4sQClMcvPP1DJ6L90Bpoaft0A
+zD6EnCD/SaeMW1eg5ODUzfwAVsTSp+gO95Klj4cuj3o=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>MWh4w63QmM2HG9dv7mWAsuIdGeU=</DigestValue></Reference></SignedInfo><SignatureValue>XNZSyeANyPiMR9x8XaPHiWmIhqkSpPsg4aXbdYaOJ9k2HoWCPp26PXup0s3hH3Ps
+gHYpTAyvLCuafkVAYO5yekNRriB/Egz/6w9MH3SWd28d/f7Qb/n8L95JpsvOXyli
+grXWnNt/NAEoPT6YjZ3aK9fbG43aaY1wtquFHK5ZNiI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

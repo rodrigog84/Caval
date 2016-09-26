@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>79521980-3</RutEmisor>
+      <RutEnvia>6315048-7</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-09-14T09:35:02</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F849">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>849</Folio>
+        <FchEmis>2016-09-14</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>79521980-3</RUTEmisor>
+        <RznSoc>CARLOS VALENZUELA Y COMPAÑIA LIMITADA</RznSoc>
+        <GiroEmis>Distribución de Insumos Agrícolas - Ferreteria - Corretaje Consignaciones - Pr</GiroEmis>
+        <Acteco>14019</Acteco>
+        <DirOrigen>Huamachuco # 713, San Clemente</DirOrigen>
+        <CmnaOrigen> </CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>78509250-3</RUTRecep>
+        <RznSocRecep>AGRICOLA LOS ZORRILLOS LTDA</RznSocRecep>
+        <GiroRecep>AGRICOLA</GiroRecep>
+        <DirRecep>FUNDO LOS ZORRILLOS TONLEMU</DirRecep>
+        <CmnaRecep>CUREPTO</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>128000</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>24320</IVA>
+        <MntTotal>152320</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>CALBO MAX (CALCIO BORO)</NmbItem>
+      <QtyItem>40</QtyItem>
+      <PrcItem>3200</PrcItem>
+      <MontoItem>128000</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>79521980-3</RE>
+    <TD>33</TD>
+    <F>849</F>
+    <FE>2016-09-14</FE>
+    <RR>78509250-3</RR>
+    <RSR>AGRICOLA LOS ZORRILLOS LTDA</RSR>
+    <MNT>152320</MNT>
+    <IT1>CALBO MAX (CALCIO BORO)</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>79521980-3</RE>
+<RS>CARLOS VALENZUELA Y COMPANIA LIMITADA</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-07-31</FA>
+<RSAPK><M>xLjscGiG7xU/WR40io3RunagXX1e8R3BeJhhlWnpRrJPQWWOz2jtlmkcbJQcVxpnIpvKy9iVo62maSzFBU4sXw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">VtQceqBtMopBw44HkP/y3zye6LjBtMpORCskl3o37sd35juKlKGmILBE3CBLsExwZDVj4IukRbhCtn7sHZ8s9A==</FRMA>
+</CAF>
+    <TSTED>2016-09-14T09:35:02</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">HHB4XSshpipij1DcjmlKilBiO4FJP/4GECoaz9nVTeGk5/KRZl4EI2wSxiQfa2rEvHI4HWoyOqW7UAvZTSzW6Q==</FRMT>
+</TED>
+  <TmstFirma>2016-09-14T09:35:02</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F849"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>68bCYKozZTbmr+2Gjy1KAkDOGwk=</DigestValue></Reference></SignedInfo><SignatureValue>LPIOjzn9+8BHFCzNyvDF4vDvFBa4hsqlDrvtKUdHKYIfKAJDBea2KOqYkkI28XVY
+34lFbBYlpjzee3+3EObHg30fuKomAwdJPgtjhvIUfRhV/uv7cXguDlA7LMRb/O45
+wOkZ3twQU7LpmuNscUrQMrl4+4OFLxfqzjvF4hplQ2A=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>UihmAozFvjnCzz/7uki0PA11GUs=</DigestValue></Reference></SignedInfo><SignatureValue>DYxCEQLOlXjfVNIYfXH3iHnlRhsKkYFF8Y6QdJFMK8p7b2FTGTEaiuTChtedDI+T
+fuK8AobRYFZy5j4Vp2dI/u0rgvtMqYMg22tItlSMwm214frfg4l5f8ij0IDMLjXy
+LW4h7MUp+bBIjFaOVboVgXeQPdZXmqtYett3wJdZ5Ak=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

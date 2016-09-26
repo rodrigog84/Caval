@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>79521980-3</RutEmisor>
+      <RutEnvia>6315048-7</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-09-26T09:55:01</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F1127">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>1127</Folio>
+        <FchEmis>2016-09-26</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>79521980-3</RUTEmisor>
+        <RznSoc>CARLOS VALENZUELA Y COMPAÑIA LIMITADA</RznSoc>
+        <GiroEmis>Distribución de Insumos Agrícolas - Ferreteria - Corretaje Consignaciones - Pr</GiroEmis>
+        <Acteco>14019</Acteco>
+        <DirOrigen>Huamachuco # 713, San Clemente</DirOrigen>
+        <CmnaOrigen> </CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>16728756-5</RUTRecep>
+        <RznSocRecep>ESPINOZA ESCOBAR CARLOS FELIPE</RznSocRecep>
+        <GiroRecep>AGRICOLA</GiroRecep>
+        <DirRecep>LOTEO SANTA HILDA</DirRecep>
+        <CmnaRecep>SAN CLEMENTE</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>193020</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>36674</IVA>
+        <MntTotal>229694</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>GLIFOS 480 SL (20 LT)</NmbItem>
+      <QtyItem>40</QtyItem>
+      <PrcItem>3178</PrcItem>
+      <MontoItem>127120</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>MTD 600 SL ( 5 LT)</NmbItem>
+      <QtyItem>10</QtyItem>
+      <PrcItem>6590</PrcItem>
+      <MontoItem>65900</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>79521980-3</RE>
+    <TD>33</TD>
+    <F>1127</F>
+    <FE>2016-09-26</FE>
+    <RR>16728756-5</RR>
+    <RSR>ESPINOZA ESCOBAR CARLOS FELIPE</RSR>
+    <MNT>229694</MNT>
+    <IT1>GLIFOS 480 SL (20 LT)</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>79521980-3</RE>
+<RS>CARLOS VALENZUELA Y COMPANIA LIMITADA</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-07-31</FA>
+<RSAPK><M>xLjscGiG7xU/WR40io3RunagXX1e8R3BeJhhlWnpRrJPQWWOz2jtlmkcbJQcVxpnIpvKy9iVo62maSzFBU4sXw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">VtQceqBtMopBw44HkP/y3zye6LjBtMpORCskl3o37sd35juKlKGmILBE3CBLsExwZDVj4IukRbhCtn7sHZ8s9A==</FRMA>
+</CAF>
+    <TSTED>2016-09-26T09:55:01</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">EdMt19pFFMhekjpdbXEmRzlN9uqV3fGjuEBnmsS2VFyXCttkj4MdvJhVVc3qiN1IwH9pNjYw1F0PYgV0VqhxPg==</FRMT>
+</TED>
+  <TmstFirma>2016-09-26T09:55:01</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F1127"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>LvPy9j1bEm5zZeo9ngkcE/vag5g=</DigestValue></Reference></SignedInfo><SignatureValue>uOBXLw7pVevtsLMdbXb9ZizaTQ2G/8q3PeGWVMPVaDqRkAfeE3SIR4RAFPYKofMr
++T9A+cuPmiTp77nxwomKSKo2VenBtKMgdAO+Wr7arvo95t3aUzV15EVddZJDBFw2
+9efJLNblCx2Y8V+kOLmQBeCo5/0t+LkHj9lEgcorzGI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>0LAXROn4zOfV8Zz/p4K8oKCsE5k=</DigestValue></Reference></SignedInfo><SignatureValue>dy7AVrqxRjnpL3MtUpB3l/X2I3DeG95PMed1EIZhmVaBkWW+iu5EAL3COxThNjSu
+N9PHfqb8ZIC5wRVB/IFWRouducm5CvJHcT/Cr0TFz++6vyEuifqIk4hHvea6yW2k
+TaDIaabwPmJPgIysHS1o3l3A4rgyuRZwMbyoi8gxzSs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

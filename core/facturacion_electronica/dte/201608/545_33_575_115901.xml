@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>79521980-3</RutEmisor>
+      <RutEnvia>6315048-7</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-08-29T11:59:01</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F545">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>545</Folio>
+        <FchEmis>2016-08-29</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>79521980-3</RUTEmisor>
+        <RznSoc>CARLOS VALENZUELA Y COMPAÑIA LIMITADA</RznSoc>
+        <GiroEmis>Distribución de Insumos Agrícolas - Ferreteria - Corretaje Consignaciones - Pr</GiroEmis>
+        <Acteco>14019</Acteco>
+        <DirOrigen>Huamachuco # 713, San Clemente</DirOrigen>
+        <CmnaOrigen> </CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>11562647-7</RUTRecep>
+        <RznSocRecep>VILLAGRA VILCHES  MARIA ISABEL</RznSocRecep>
+        <GiroRecep>AGRICOLA</GiroRecep>
+        <DirRecep>PARCELA 276 LOTE 2 MARIPOSAS</DirRecep>
+        <CmnaRecep>.</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>195042</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>37058</IVA>
+        <MntTotal>232100</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>SEM. NUTRAPACK E-2</NmbItem>
+      <QtyItem>25</QtyItem>
+      <PrcItem>4605</PrcItem>
+      <MontoItem>115126</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>SEM. BALLICA NUI (N) (KG)</NmbItem>
+      <QtyItem>10</QtyItem>
+      <PrcItem>2059</PrcItem>
+      <MontoItem>20588</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>3</NroLinDet>
+      <NmbItem>MEZCLA 8-21-14 (SACO 50 KLS)</NmbItem>
+      <QtyItem>4</QtyItem>
+      <PrcItem>14286</PrcItem>
+      <MontoItem>57143</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>4</NroLinDet>
+      <NmbItem>HORTALIZA VARIAS 5 GRAMOS</NmbItem>
+      <QtyItem>2</QtyItem>
+      <PrcItem>1092</PrcItem>
+      <MontoItem>2185</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>79521980-3</RE>
+    <TD>33</TD>
+    <F>545</F>
+    <FE>2016-08-29</FE>
+    <RR>11562647-7</RR>
+    <RSR>VILLAGRA VILCHES  MARIA ISABEL</RSR>
+    <MNT>232100</MNT>
+    <IT1>SEM. NUTRAPACK E-2</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>79521980-3</RE>
+<RS>CARLOS VALENZUELA Y COMPANIA LIMITADA</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-07-31</FA>
+<RSAPK><M>xLjscGiG7xU/WR40io3RunagXX1e8R3BeJhhlWnpRrJPQWWOz2jtlmkcbJQcVxpnIpvKy9iVo62maSzFBU4sXw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">VtQceqBtMopBw44HkP/y3zye6LjBtMpORCskl3o37sd35juKlKGmILBE3CBLsExwZDVj4IukRbhCtn7sHZ8s9A==</FRMA>
+</CAF>
+    <TSTED>2016-08-29T11:59:01</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">r7UnMOyVXtSR5nqz2tXp06qj8CfG57cB0nCvTe/jrtOtY/nvkQhb+U/+bcyWW0ZypID8d6S4W220idFz+mRjwA==</FRMT>
+</TED>
+  <TmstFirma>2016-08-29T11:59:01</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F545"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>Dv+tUtCPS+FnW+tdHZN490Huisg=</DigestValue></Reference></SignedInfo><SignatureValue>jWCRuqQbn88BHkSrZCB+YWrwK5CatMv14Xx7emhwhkkjmpfqkhj3EsJk3rUNghyI
+IrqG2LuEeWDKcasEkwaVqT5qWNRErOl2QjABtzl6w2tBA/JVrBCPVsAVFLJwJUw0
+2FTgYJTrGJCwaWBzEArcH0R7Z/WtVKa937kGjlcYVGI=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>OjiSYUewES/u4N1vg1UMnqPTmPU=</DigestValue></Reference></SignedInfo><SignatureValue>CbokJU0LsTVH9XFlRUQ6CpX+BuuwfUC37OEqIx87tgvKv+EQWokcGJQ0TyaLewyN
+MO2rvTwu20fvEaf8Sy0RMLynNpIvpWTiwrqHoBVd443cJTGxxRqud/5iNGcLjrQF
+9SNjfvi0byVDHG/9QVr0TY+nZKfUc8tkLy4J6URDPF4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>yVswjGW1d8zmJnG6o2o7wCPCQbg56CcRQOU3nAeIeasg0l3m0qNGEn++viKUBzJ4
+fdIqyRgJzNwApR+weFe4I6s7GzRYyzJmdLfunbkAdtImhdQnWnUaIxR6nTAKI2fO
+u6TIN2qxFPTOWzVocDaPFuOdwNqCFOWkXkPd6qkbEMM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIFXDCCBESgAwIBAgICO30wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDUxMzEyMzc1OFoXDTE4MDUxMzEzMzc1OFowgY4xCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxKDAmBgNVBAMTH0NB
+UkxPUyBFTlJJUVVFIFZBTEVOWlVFTEEgT0xBVkUxJzAlBgkqhkiG9w0BCQEWGENP
+TUVSQ0lBTENBVkFMQEdNQUlMLkNPTTESMBAGA1UEBRMJNjMxNTA0OC03MIGfMA0G
+CSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJWzCMZbV3zOYmcbqjajvAI8JBuDnoJxFA
+5TecB4h5qyDSXebSo0YSf76+IpQHMnh90irJGAnM3AClH7B4V7gjqzsbNFjLMmZ0
+t+6duQB20iaF1CdadRojFHqdMAojZ867pMg3arEU9M5bNWhwNo8W453A2oIU5aRe
+Q93qqRsQwwIDAQABo4ICLDCCAigwHwYDVR0jBBgwFoAUQCQaPakxeoV3ej2ecpM5
+hOVAOBkwHQYDVR0OBBYEFIsScZAAkeXexPEhL9B4hfDOSzrjMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQD
+AgWgMG4GA1UdIARnMGUwYwYKKwYBBAG1a4dqCjBVMCgGCCsGAQUFBwIBFhxodHRw
+Oi8vd3d3LmFjZXB0YS5jb20vQ1BTLUczMCkGCCsGAQUFBwICMB0wFhYPQWNlcHRh
+LmNvbSBTLkEuMAMCAQkaA1RCRDBaBgNVHRIEUzBRoBgGCCsGAQQBwQECoAwWCjk2
+OTE5MDUwLTigJAYIKwYBBQUHCAOgGDAWDAo5NjkxOTA1MC04BggrBgEEAcEBAoEP
+aW5mb0BhY2VwdGEuY29tMGEGA1UdEQRaMFigFwYIKwYBBAHBAQGgCxYJNjMxNTA0
+OC03oCMGCCsGAQUFBwgDoBcwFQwJNjMxNTA0OC03BggrBgEEAcEBAoEYQ09NRVJD
+SUFMQ0FWQUxAR01BSUwuQ09NMD8GCCsGAQUFBwEBBDMwMTAvBggrBgEFBQcwAYYj
+aHR0cDovL29jc3AuYWNlcHRhLmNvbS9DbGFzZTNCaW8tRzMwNwYDVR0fBDAwLjAs
+oCqgKIYmaHR0cDovL2NybC5hY2VwdGEuY29tL0NsYXNlM0Jpby1HMy5jcmwwDQYJ
+KoZIhvcNAQEFBQADggEBADsPkBjU7AjVgkydUPkmXKkZeaeJtcYLUipTN8PcoHfs
+le3GkngZ5mTz2wmCnEi91QUN22uvizCXveS1kimQIDuXnNdtY8xVniZUuRnK2gYY
+bkf1BOrX87h3NvRRajCKF73yTdrN9gN+BuNePu9LUCX4bJj47p4b8gdONrfk8hvw
+pYqKoIZA/5YsYYUgiN6ioQL5RUmylFKmkWMmBPFtckt0JYgya9XUSuJQ/zRu85qq
+LRjoE13n27DZESoQk7J/TiC+BK3mcCZeqTm0Oq8h2dcm+WGgR7NoFaBcuc7KYT/C
+QWm2UIH2OkVnkJsbNh8aZZPwpGdpp9tVdbxvYrioiOk=</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>
