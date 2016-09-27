@@ -48,6 +48,7 @@ class Dte extends \sasco\LibreDTE\PDF
     private $ecl = 8; ///< error correction level para PHP >= 7.0.0
 
     private $tipos = [
+        30 => 'FACTURA',
         33 => 'FACTURA ELECTRÓNICA',
         34 => 'FACTURA NO AFECTA O EXENTA ELECTRÓNICA',
         39 => 'BOLETA ELECTRÓNICA',

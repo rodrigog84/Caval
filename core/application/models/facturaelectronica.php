@@ -738,7 +738,7 @@ class Facturaelectronica extends CI_Model
 								    ],
 									'Detalle' => $lista_detalle,
 					                'Referencia' => [
-					                    'TpoDocRef' => 33,
+					                    'TpoDocRef' => $data_csv[0]->referencia > 100000 ? 30 : 33,
 					                    'FolioRef' => $data_csv[0]->referencia,
 					                    'CodRef' => $tipo_nota_credito,
 					                    'RazonRef' => $glosa,
