@@ -643,7 +643,7 @@ class Facturaelectronica extends CI_Model
 
 				}
 
-				if($docto->tipocaf == 61){
+				if($docto->tipocaf == 61 || $docto->tipocaf == 56){
 					$numfactura = isset($this->get_content_caf_folio($data_csv[0]->referencia,33)->idfactura) ? $this->get_content_caf_folio($data_csv[0]->referencia,33)->idfactura : $data_csv[0]->referencia;  //referencia siempre es una factura electronica
 				}else{
 					$numfactura = 0;
@@ -696,7 +696,7 @@ class Facturaelectronica extends CI_Model
 				}// FIN REGCSV
 
 
-				if($tipodocumento == 101 || $tipodocumento == 102 || $tipodocumento == 103){  // SI ES FACTURA ELECTRONICA O NOTA DE CRÉDITO O FACTURA EXENTA ELECTRONICA
+				if($tipodocumento == 101 || $tipodocumento == 102 || $tipodocumento == 103 || $tipodocumento == 104){  // SI ES FACTURA ELECTRONICA O NOTA DE CRÉDITO O FACTURA EXENTA ELECTRONICA O NOTA DE DEBITO
 
 							$tipo_caf = $docto->tipocaf;
 
@@ -704,6 +704,53 @@ class Facturaelectronica extends CI_Model
 
 								$tipo_nota_credito = 1;
             					$glosa = 'Anula factura  '. $data_csv[0]->referencia;								
+
+
+								$factura = [
+								    'Encabezado' => [
+								        'IdDoc' => [
+								            'TipoDTE' => $docto->tipocaf,
+								            'Folio' => $docto->folio,
+								            'FchEmis' => $data_csv[0]->fechafactura
+								        ],
+								        'Emisor' => [
+								            'RUTEmisor' => $empresa->rut.'-'.$empresa->dv,
+								            'RznSoc' => substr($empresa->razon_social,0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES,
+								            'GiroEmis' => substr($empresa->giro,0,80), //LARGO DE GIRO DEL EMISOR NO PUEDE SER SUPERIOR A 80 CARACTERES
+								            'Acteco' => $empresa->cod_actividad,
+								            'DirOrigen' => substr($empresa->dir_origen,0,70), //LARGO DE DIRECCION DE ORIGEN NO PUEDE SER SUPERIOR A 70 CARACTERES
+								            'CmnaOrigen' => substr($empresa->comuna_origen,0,20), //LARGO DE COMUNA DE ORIGEN NO PUEDE SER SUPERIOR A 20 CARACTERES
+								        ],
+								        'Receptor' => [
+								            'RUTRecep' => $data_csv[0]->rut."-".$data_csv[0]->dv,
+								            'RznSocRecep' => substr($data_csv[0]->razonsocial,0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES
+								            'GiroRecep' => substr($data_csv[0]->giro,0,40),  //LARGO DEL GIRO NO PUEDE SER SUPERIOR A 40 CARACTERES
+								            'DirRecep' => substr($data_csv[0]->direccion,0,70), //LARGO DE DIRECCION NO PUEDE SER SUPERIOR A 70 CARACTERES
+								            'CmnaRecep' => substr($data_csv[0]->comuna,0,20), //LARGO DE COMUNA NO PUEDE SER SUPERIOR A 20 CARACTERES
+								        ],
+							            'Totales' => [
+							                // estos valores serán calculados automáticamente
+							                'MntNeto' => 0,
+							                'TasaIVA' => \sasco\LibreDTE\Sii::getIVA(),
+							                'IVA' => 0,
+							                'MntTotal' => 0,
+							            ],			        
+								    ],
+									'Detalle' => $lista_detalle,
+					                'Referencia' => [
+					                    'TpoDocRef' => $data_csv[0]->referencia > 100000 ? 30 : 33,
+					                    'FolioRef' => $data_csv[0]->referencia,
+					                    'CodRef' => $tipo_nota_credito,
+					                    'RazonRef' => $glosa,
+					                ] 									
+								];
+
+
+							}else if($tipo_caf == 56){
+
+
+								$tipo_nota_credito = 2;
+            					$glosa = 'Correccion factura  '. $data_csv[0]->referencia;								
 
 
 								$factura = [
