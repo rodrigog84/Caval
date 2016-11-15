@@ -587,6 +587,7 @@ class Facturaelectronica extends CI_Model
 
 	public function crea_dte_csv($codproceso){
 
+		$this->db->trans_start();
 		$this->db->select('tipocaf, folio ')
 			->from('guarda_csv')
 			->where('codigoproceso',$codproceso)
@@ -906,6 +907,7 @@ class Facturaelectronica extends CI_Model
 
 		}
 
+		$this->db->trans_complete();
 
 
 
