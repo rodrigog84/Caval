@@ -859,8 +859,7 @@ class Facturaelectronica extends CI_Model
 							$EnvioDTE->setFirma($Firma);
 							$EnvioDTE->setCaratula($caratula);
 							$xml_dte = $EnvioDTE->generar();
-							var_dump($EnvioDTE->schemaValidate());
-							print_r($xml_dte); exit;
+
 							if ($EnvioDTE->schemaValidate()) { // REVISAR PORQUÉ SE CAE CON ESTA VALIDACION
 								
 								$track_id = 0;
