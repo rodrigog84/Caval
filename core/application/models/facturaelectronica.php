@@ -604,7 +604,7 @@ class Facturaelectronica extends CI_Model
 
 		foreach ($data_doctos as $docto) {
 
-			//header('Content-type: text/plain; charset=ISO-8859-1');
+			header('Content-type: text/plain; charset=ISO-8859-1');
 			
 
 			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle ')
