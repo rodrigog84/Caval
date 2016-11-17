@@ -604,7 +604,7 @@ class Facturaelectronica extends CI_Model
 
 		foreach ($data_doctos as $docto) {
 
-			header('Content-type: text/plain; charset=ISO-8859-1');
+			//header('Content-type: text/plain; charset=ISO-8859-1');
 			
 
 			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle ')
@@ -690,8 +690,11 @@ class Facturaelectronica extends CI_Model
 
 					$lista_detalle[$i]['NmbItem'] = $regcsv->nombre;
 					$lista_detalle[$i]['QtyItem'] = $regcsv->cantidad;
-					$lista_detalle[$i]['PrcItem'] = $regcsv->preciounit;
-					$lista_detalle[$i]['MontoItem'] = $regcsv->totaldetalle;
+					if($regcsv->preciounit != 0){
+						$lista_detalle[$i]['PrcItem'] = $regcsv->preciounit;
+						$lista_detalle[$i]['MontoItem'] = $regcsv->totaldetalle;
+					}
+
 					$i++;
 					// FIN								
 				}// FIN REGCSV
@@ -856,7 +859,8 @@ class Facturaelectronica extends CI_Model
 							$EnvioDTE->setFirma($Firma);
 							$EnvioDTE->setCaratula($caratula);
 							$xml_dte = $EnvioDTE->generar();
-
+							var_dump($EnvioDTE->schemaValidate());
+							print_r($xml_dte); exit;
 							if ($EnvioDTE->schemaValidate()) { // REVISAR PORQUÉ SE CAE CON ESTA VALIDACION
 								
 								$track_id = 0;
