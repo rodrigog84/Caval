@@ -320,3 +320,10 @@ CREATE TABLE `guarda_csv` (
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 ;
+
+
+/************************************************************************************************************/
+
+ALTER TABLE `empresa`
+	ADD COLUMN `fono` VARCHAR(20) NULL DEFAULT '' AFTER `comuna_origen`,
+	ADD COLUMN `mail` VARCHAR(50) NULL DEFAULT '' AFTER `fono`;
