@@ -256,6 +256,19 @@ class Facturaelectronica extends CI_Model
 		return $query->row();
 	}	
 
+
+	public function get_factura_no_enviada(){
+		$this->db->select('c.idfactura')
+		  ->from('folios_caf c ')
+		  ->join('factura_clientes fc','c.idfactura = fc.id')
+		  ->where('c.trackid','0')
+		  ->where('c.idfactura <> 0')
+		  ->where('c.estado','O');
+		$query = $this->db->get();
+		return $query->result();
+	 }	
+
+
 	public function datos_dte_by_trackid($trackid){
 		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, if(fc.cond_venta<>"",fc.cond_venta,cp.nombre) as cond_pago, if(fc.vendedor<>0,fc.vendedor,v.nombre) as vendedor',false)
 		  ->from('folios_caf f')
