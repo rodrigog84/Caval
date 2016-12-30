@@ -327,3 +327,10 @@ ENGINE=InnoDB
 ALTER TABLE `empresa`
 	ADD COLUMN `fono` VARCHAR(20) NULL DEFAULT '' AFTER `comuna_origen`,
 	ADD COLUMN `mail` VARCHAR(50) NULL DEFAULT '' AFTER `fono`;
+
+/************************************************************************************************************/
+
+ALTER TABLE `guarda_csv`
+	ADD COLUMN `oreferencia` VARCHAR(250) NOT NULL AFTER `totaldetalle`;
+ALTER TABLE `factura_clientes`
+	ADD COLUMN `oreferencia` VARCHAR(250) NOT NULL AFTER `forma`;		

@@ -21,6 +21,7 @@ class Procesos extends CI_Controller {
 					 	$path_archivo = $path.$archivo;
 						$this->load->model('facturaelectronica');
 						$codproceso = $this->facturaelectronica->guarda_csv($path_archivo);
+
 						$this->facturaelectronica->crea_dte_csv($codproceso);	
 						rename($path_archivo,$path."procesados/".$archivo);
 			        }

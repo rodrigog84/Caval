@@ -230,7 +230,7 @@ class Facturaelectronica extends CI_Model
 
 	public function datos_dte($idfactura){
 
-		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, if(fc.cond_venta<>"",fc.cond_venta,cp.nombre) as cond_pago, if(fc.vendedor<>"",fc.vendedor,v.nombre) as vendedor ',false)
+		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, if(fc.cond_venta<>"",fc.cond_venta,cp.nombre) as cond_pago, if(fc.vendedor<>"",fc.vendedor,v.nombre) as vendedor, fc.oreferencia ',false)
 		  ->from('folios_caf f')
 		  ->join('caf c','f.idcaf = c.id')
 		  ->join('tipo_caf tc','c.tipo_caf = tc.id')
@@ -270,7 +270,7 @@ class Facturaelectronica extends CI_Model
 
 
 	public function datos_dte_by_trackid($trackid){
-		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, if(fc.cond_venta<>"",fc.cond_venta,cp.nombre) as cond_pago, if(fc.vendedor<>0,fc.vendedor,v.nombre) as vendedor',false)
+		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, if(fc.cond_venta<>"",fc.cond_venta,cp.nombre) as cond_pago, if(fc.vendedor<>0,fc.vendedor,v.nombre) as vendedor, fc.oreferencia',false)
 		  ->from('folios_caf f')
 		  ->join('caf c','f.idcaf = c.id')
 		  ->join('tipo_caf tc','c.tipo_caf = tc.id')
@@ -307,7 +307,6 @@ class Facturaelectronica extends CI_Model
 	 		$factura = $this->datos_dte_by_trackid($idfactura);
 	 	}
 	 	$nombre_pdf = is_null($cedible) ? $factura->pdf : $factura->pdf_cedible;
-
 	 	//file_exists 
 	 	$crea_archivo = true;
 	 	if($nombre_pdf != ''){
@@ -364,6 +363,8 @@ class Facturaelectronica extends CI_Model
 
 			    $pdf->setCondPago($factura->cond_pago); 
 			    $pdf->setVendedor($factura->vendedor); 
+
+			    $pdf->setOreferencia($factura->oreferencia); 
 
 
 			    $pdf->setResolucion(['FchResol'=>$Caratula['FchResol'], 'NroResol'=>$Caratula['NroResol']]);
@@ -585,6 +586,7 @@ class Facturaelectronica extends CI_Model
 			        					'totaldetalle' => $datos[19],
 			        					'referencia' => isset($datos[20]) ? $datos[20] : 0,
 			        					'vendedor' => isset($datos[21]) ? $datos[21] : "",
+			        					'oreferencia' => isset($datos[22]) ? $datos[22] : "",
 			        					'codigoproceso' => $codproceso
 			        			);
 
@@ -624,15 +626,15 @@ class Facturaelectronica extends CI_Model
 			header('Content-type: text/plain; charset=ISO-8859-1');
 			
 
-			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle ')
+			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia ')
 		  			->from('guarda_csv')
 		  			->where('tipocaf',$docto->tipocaf)
 		  			->where('folio',$docto->folio);
 			$query = $this->db->get();
 			$data_csv = $query->result();
 
-			$datos_folio = $this->get_content_caf_folio($docto->folio,$docto->tipocaf);
 
+			$datos_folio = $this->get_content_caf_folio($docto->folio,$docto->tipocaf);
 
 			if(count($datos_folio) > 0){
 				//SÓLO SE CARGA AQUELLOS FOLIOS QUE EXISTEN Y ESTÁN PENDIENTES O TOMADOS
@@ -682,12 +684,12 @@ class Facturaelectronica extends CI_Model
 			        'fecha_factura' => $data_csv[0]->fechafactura,
 			        'id_factura' => $numfactura,
 			        'fecha_venc' => $data_csv[0]->fechafactura,
+			        'oreferencia' => $data_csv[0]->oreferencia,
 			        'forma' => 1	          
 				);
 
 				$this->db->insert('factura_clientes', $factura_cliente); 
 				$idfactura = $this->db->insert_id();
-
 
 				$datos_empresa_factura = $this->get_empresa_factura($idfactura);
 				$detalle_factura = $this->get_detalle_factura_glosa($idfactura);
