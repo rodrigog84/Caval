@@ -355,3 +355,11 @@ ALTER TABLE `log_libros`
 ALTER TABLE `folios_caf`
 	ADD COLUMN `archivo_dte_cliente` VARCHAR(50) NOT NULL AFTER `archivo_dte`;
 	
+
+/***************************************************************************************/
+
+
+ALTER TABLE `guarda_csv`
+	ADD COLUMN `unidadmedida` VARCHAR(10) NOT NULL AFTER `oreferencia`;
+ALTER TABLE `detalle_factura_glosa`
+	ADD COLUMN `unidadmedida` VARCHAR(10) NOT NULL AFTER `total`;
