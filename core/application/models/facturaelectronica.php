@@ -62,8 +62,8 @@ class Facturaelectronica extends CI_Model
 	public function ruta_certificado(){
 		$base_path = __DIR__;
 		$base_path = str_replace("\\", "/", $base_path);
-		$path = $base_path . "/../../facturacion_electronica/certificado/certificado.p12";		
-		//$path = "/var/www/html/Caval/core/facturacion_electronica/certificado/certificado.p12";		
+		//$path = $base_path . "/../../facturacion_electronica/certificado/certificado.p12";		
+		$path = "/var/www/html/Caval/core/facturacion_electronica/certificado/certificado.p12";		
 		//echo $path; exit;
 		return $path;
 	}
@@ -235,9 +235,10 @@ class Facturaelectronica extends CI_Model
 	 }
 
 	public function get_detalle_factura_glosa($id_factura){
-		$this->db->select('f.glosa, f.neto, f.iva, f.total ')
+		$this->db->select('f.item, f.glosa, f.neto, f.iva, f.total, f.unidadmedida ')
 		  ->from('detalle_factura_glosa f')
-		  ->where('f.id_factura',$id_factura);
+		  ->where('f.id_factura',$id_factura)
+		  ->order_by('f.item','asc');
 		$query = $this->db->get();
 		return $query->result();
 	 }	 
@@ -392,7 +393,6 @@ class Facturaelectronica extends CI_Model
 			    $pdf->setVendedor($factura->vendedor); 
 
 			    $pdf->setOreferencia($factura->oreferencia); 
-
 
 			    $pdf->setResolucion(['FchResol'=>$Caratula['FchResol'], 'NroResol'=>$Caratula['NroResol']]);
 			    /*if(!is_null($cedible)){
@@ -619,10 +619,12 @@ class Facturaelectronica extends CI_Model
 			        					'referencia' => isset($datos[20]) ? $datos[20] : 0,
 			        					'vendedor' => isset($datos[21]) ? $datos[21] : "",
 			        					'oreferencia' => isset($datos[22]) ? $datos[22] : "",
+			        					'unidadmedida' => isset($datos[23]) ? $datos[23] : "",
 			        					'codigoproceso' => $codproceso
 			        			);
 
 			        $this->db->insert('guarda_csv',$array_data);
+
 			        /*for ($c=0; $c < $numero; $c++) {
 			            echo $datos[$c] . "<br />\n";
 			        }*/
@@ -658,7 +660,7 @@ class Facturaelectronica extends CI_Model
 			header('Content-type: text/plain; charset=ISO-8859-1');
 			
 
-			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia ')
+			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia, unidadmedida ')
 		  			->from('guarda_csv')
 		  			->where('tipocaf',$docto->tipocaf)
 		  			->where('folio',$docto->folio);
@@ -734,13 +736,15 @@ class Facturaelectronica extends CI_Model
 				        'glosa' => $regcsv->nombre,
 				        'neto' => $regcsv->totaldetalle,
 				        'iva' => $regcsv->totaldetalle*0.19,
-				        'total' => $regcsv->totaldetalle*1.19
+				        'total' => $regcsv->totaldetalle*1.19,
+				        'unidadmedida' => $regcsv->unidadmedida,
 					);
 
 					$this->db->insert('detalle_factura_glosa', $factura_clientes_item);
 
 					$lista_detalle[$i]['NmbItem'] = $regcsv->nombre;
 					$lista_detalle[$i]['QtyItem'] = $regcsv->cantidad;
+					$lista_detalle[$i]['UnmdItem'] = substr($regcsv->unidadmedida,0,3);
 					if($regcsv->preciounit != 0){
 						$lista_detalle[$i]['PrcItem'] = $regcsv->preciounit;
 						$lista_detalle[$i]['MontoItem'] = $regcsv->totaldetalle;
