@@ -13,12 +13,17 @@ class Procesos extends CI_Controller {
 	public function lectura_csv_fe(){
 			$path = "./facturacion_electronica/csv/";
 			$directorio = opendir($path);
+
 			while ($archivo = readdir($directorio)){
+
 			    if (!is_dir($archivo)){
+
 			        $array_archivo = explode(".",$archivo);
 			        $extension = $array_archivo[count($array_archivo)-1];
+
 			        if(strtoupper($extension) == 'CSV'){
 					 	$path_archivo = $path.$archivo;
+
 						$this->load->model('facturaelectronica');
 						$codproceso = $this->facturaelectronica->guarda_csv($path_archivo);
 

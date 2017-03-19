@@ -235,10 +235,10 @@ class Facturaelectronica extends CI_Model
 	 }
 
 	public function get_detalle_factura_glosa($id_factura){
-		$this->db->select('f.item, f.glosa, f.neto, f.iva, f.total, f.unidadmedida ')
+		$this->db->select('f.glosa, f.neto, f.iva, f.total, f.unidadmedida ')
 		  ->from('detalle_factura_glosa f')
-		  ->where('f.id_factura',$id_factura)
-		  ->order_by('f.item','asc');
+		  ->where('f.id_factura',$id_factura);
+		  #->order_by('f.item','asc');
 		$query = $this->db->get();
 		return $query->result();
 	 }	 
@@ -619,7 +619,7 @@ class Facturaelectronica extends CI_Model
 			        					'referencia' => isset($datos[20]) ? $datos[20] : 0,
 			        					'vendedor' => isset($datos[21]) ? $datos[21] : "",
 			        					'oreferencia' => isset($datos[22]) ? $datos[22] : "",
-			        					'unidadmedida' => isset($datos[23]) ? $datos[23] : "",
+			        					//'unidadmedida' => isset($datos[23]) ? $datos[23] : "",
 			        					'codigoproceso' => $codproceso
 			        			);
 
@@ -660,7 +660,7 @@ class Facturaelectronica extends CI_Model
 			header('Content-type: text/plain; charset=ISO-8859-1');
 			
 
-			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia, unidadmedida ')
+			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia')
 		  			->from('guarda_csv')
 		  			->where('tipocaf',$docto->tipocaf)
 		  			->where('folio',$docto->folio);
@@ -737,14 +737,14 @@ class Facturaelectronica extends CI_Model
 				        'neto' => $regcsv->totaldetalle,
 				        'iva' => $regcsv->totaldetalle*0.19,
 				        'total' => $regcsv->totaldetalle*1.19,
-				        'unidadmedida' => $regcsv->unidadmedida,
+				        'unidadmedida' => $regcsv->unidad,
 					);
 
 					$this->db->insert('detalle_factura_glosa', $factura_clientes_item);
 
 					$lista_detalle[$i]['NmbItem'] = $regcsv->nombre;
 					$lista_detalle[$i]['QtyItem'] = $regcsv->cantidad;
-					$lista_detalle[$i]['UnmdItem'] = substr($regcsv->unidadmedida,0,3);
+					$lista_detalle[$i]['UnmdItem'] = substr($regcsv->unidad,0,3);
 					if($regcsv->preciounit != 0){
 						$lista_detalle[$i]['PrcItem'] = $regcsv->preciounit;
 						$lista_detalle[$i]['MontoItem'] = $regcsv->totaldetalle;
