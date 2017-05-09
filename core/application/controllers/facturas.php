@@ -251,7 +251,7 @@ public function show_dte($idfactura){
 											$factura->fecha_factura,
 											'',
 											$factura->rut,
-											substr(str_replace(",","",$factura->nombres),0,45),
+											substr(str_replace(",","",permite_alfanumerico($factura->nombres)),0,45),
 											$factura->tipo_caf == 34 ? $factura->neto : '',
 											$factura->tipo_caf == 34 ? '' : $factura->neto,
 											$factura->tipo_caf == 34 ? '' : $factura->iva,
