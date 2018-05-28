@@ -553,7 +553,14 @@ public function envio_libro_sii(){
 		$rut_consultante = explode("-",$rut);
 		$RutEnvia = $rut_consultante[0]."-".$rut_consultante[1];
 
-		$xml = $factura->dte;
+		$archivo = "./facturacion_electronica/dte/".$factura->path_dte.$factura->archivo_dte;
+	 	if(file_exists($archivo)){
+	 		$xml = file_get_contents($archivo);
+	 	}else{
+	 		$xml = $factura->dte;
+	 	}
+
+		//$xml = $factura->dte;
 
 		$EnvioDte = new \sasco\LibreDTE\Sii\EnvioDte();
 		$EnvioDte->loadXML($xml);
@@ -585,9 +592,9 @@ public function envio_libro_sii(){
 		    exit;
 		}
 
-
 		$track_id = 0;
-		$track_id = (int)$result_envio->TRACKID;
+		$track_id = (float)$result_envio->TRACKID;
+
 	    $this->db->where('id', $factura->id);
 		$this->db->update('folios_caf',array('trackid' => $track_id)); 
 
@@ -877,9 +884,14 @@ public function estado_envio_libro($idlibro){
 
 		if(empty($dte)){
 		//if($dte->path_dte == ''){
-
 			$dte = $this->facturaelectronica->crea_dte($idfactura,$tipo);
+		}else{
+
+		 	if($dte->{$ruta} == ''){
+				$dte = $this->facturaelectronica->crea_dte($idfactura,$tipo);
+			}
 		}
+
 
 
 		$nombre_archivo = $tipo == 'cliente' ? $dte->archivo_dte_cliente : $dte->archivo_dte;

@@ -56,7 +56,6 @@ class Procesos extends CI_Controller {
 		$this->load->model('facturaelectronica');
 		$facturas = $this->facturaelectronica->get_factura_no_enviada();
 
-		
 
 		foreach ($facturas as $factura) {
 			$idfactura = $factura->idfactura;
@@ -122,8 +121,8 @@ class Procesos extends CI_Controller {
 
 
 			$track_id = 0;
-			$track_id = (int)$result_envio->TRACKID;
-		    $this->db->where('id', $factura->id);
+			$track_id = (float)$result_envio->TRACKID;
+		    $this->db->where('id', $factura->id); 
 			$this->db->update('folios_caf',array('trackid' => $track_id)); 
 
 			$datos_empresa_factura = $this->facturaelectronica->get_empresa_factura($idfactura);
