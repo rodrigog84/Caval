@@ -43,6 +43,10 @@ class Dte extends \sasco\LibreDTE\PDF
     private $vendedor;
     private $oreferencia;
 
+    private $netoBoleta; //Fono de emisor completo
+    private $ivaBoleta; //Fono de emisor completo
+    private $totalBoleta; //Fono de emisor completo
+
 
     private $resolucion; ///< Arreglo con los datos de la resolución (índices: NroResol y FchResol)
     private $cedible = false; ///< Por defecto DTEs no son cedibles
@@ -158,6 +162,22 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->oreferencia = $oreferencia;
     } 
 
+ public function setNeto($neto)
+    {
+        $this->netoBoleta = $neto;
+    }  
+
+
+    public function setIva($iva)
+    {
+        $this->ivaBoleta = $iva;
+    }       
+
+
+    public function setTotal($totalfactura)
+    {
+        $this->totalBoleta = $totalfactura;
+    }  
 
     /**
      * Método que asigna los datos de la resolución del SII que autoriza al
@@ -801,6 +821,16 @@ class Dte extends \sasco\LibreDTE\PDF
             'IVA' => false,
             'MntTotal' => false,
         ], $totales);
+
+
+        if(!$totales['IVA']){
+            $totales['IVA'] = $this->ivaBoleta;
+        }
+
+        if(!$totales['MntNeto']){
+            $totales['MntNeto'] = $this->netoBoleta;
+            $totales['MntTotal'] = $this->netoBoleta + $this->ivaBoleta;
+        }        
         // glosas
         $glosas = [
             'MntNeto' => 'Neto $',

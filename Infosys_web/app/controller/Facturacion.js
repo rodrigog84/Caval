@@ -998,7 +998,7 @@ cargar_listado_contribuyentes: function(){
             var row = view.getSelectionModel().getSelection()[0];
             var tipo_documento = row.data.tipo_documento;
 
-            if (tipo_documento==101 || tipo_documento==103){
+            if (tipo_documento==101 || tipo_documento==103|| tipo_documento==120){
                 window.open(preurl +'facturas/exportFePDF/' + row.data.id+'/cedible')
             }else{
                 Ext.Msg.alert('Alerta', 'Solo disponible para facturas electronicas');
@@ -1098,7 +1098,7 @@ cargar_listado_contribuyentes: function(){
         //console.log(record);
         var nombre = (record.id);    
         habilita = false;
-        if(nombre == 101 || nombre == 103){ // FACTURA ELECTRONICA o FACTURA EXENTA
+        if(nombre == 101 || nombre == 103 || nombre == 120 ){ // FACTURA ELECTRONICA o FACTURA EXENTA
 
             // se valida que exista certificado
             response_certificado = Ext.Ajax.request({
