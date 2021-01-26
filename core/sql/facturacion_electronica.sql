@@ -363,3 +363,34 @@ ALTER TABLE `guarda_csv`
 	ADD COLUMN `unidadmedida` VARCHAR(10) NOT NULL AFTER `oreferencia`;
 ALTER TABLE `detalle_factura_glosa`
 	ADD COLUMN `unidadmedida` VARCHAR(10) NOT NULL AFTER `total`;
+
+
+/************************************************************/
+
+CREATE TABLE `consumo_folios` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`fecha` DATE NULL DEFAULT NULL,
+	`cant_folios` INT(11) NULL DEFAULT NULL,
+	`folio_desde` INT(11) NULL DEFAULT NULL,
+	`folio_hasta` INT(11) NULL DEFAULT NULL,
+	`path_consumo_folios` VARCHAR(50) NULL DEFAULT NULL,
+	`archivo_consumo_folios` VARCHAR(50) NULL DEFAULT NULL,
+	`xml` TEXT NULL,
+	`trackid` VARCHAR(30) NULL DEFAULT NULL,
+	`created_at` DATETIME NULL DEFAULT NULL,
+	`updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB;
+
+
+
+
+
+ALTER TABLE `empresa`
+	ADD COLUMN `fec_inicio_boleta` DATE NULL DEFAULT NULL AFTER `logo`;
+
+UPDATE `empresa` SET `fec_inicio_boleta`='2020-09-01' WHERE  `id`=1;
+ALTER TABLE `folios_caf`
+	ADD COLUMN `id_consumo_folios` INT(11) NOT NULL AFTER `idfactura`;

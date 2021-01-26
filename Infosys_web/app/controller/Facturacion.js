@@ -14,6 +14,7 @@ Ext.define('Infosys_web.controller.Facturacion', {
              'facturas.Selector',
              'Cargadteproveedores',
              'Contribuyentesautorizados',
+             'Consumofolios',
              'Loglibros'],
 
     models: ['Facturas.Item',
@@ -41,6 +42,7 @@ Ext.define('Infosys_web.controller.Facturacion', {
              'facturaelectronica.CargaDteProveedor',
              'facturaelectronica.LibroCompraVenta',
              'facturaelectronica.ContribuyentesAutorizados',
+             'facturaelectronica.ConsumoFolios',
              'facturaelectronica.CargaListaContribuyentes',
              'facturaelectronica.HistLibroCompraVenta',
              'facturaelectronica.Emails'],
@@ -156,7 +158,11 @@ Ext.define('Infosys_web.controller.Facturacion', {
 
             'topmenus menuitem[action=mcargacontribuyentes]': {
                 click: this.mcargacontribuyentes
-            },                                                 
+            },    
+
+            'topmenus menuitem[action=mconsumofolios]': {
+                click: this.mconsumofolios
+            },                                             
 
             'topmenus menuitem[action=mhistlibrocompraventa]': {
                 click: this.mhistlibrocompraventa
@@ -170,6 +176,9 @@ Ext.define('Infosys_web.controller.Facturacion', {
                 click: this.memail
             }, 
 
+            'consumofolios': {
+                verEstadoDte: this.verEstadoDte
+            },
 
             'facturasingresar button[action=buscarclientes]': {
                 click: this.buscarclientes
@@ -406,7 +415,12 @@ cargar_listado_contribuyentes: function(){
              window.open(url,'_blank');   
          }else if(t == 6){
             Ext.create('Infosys_web.view.facturaelectronica.verEstadoEnvioLibro', {idlibro: r.data.id});                          
-         } 
+         }else if(t == 7){
+            url = preurl + 'facturas/ver_consumo_folios/'+r.data.id,
+            window.open(url,'_blank');           
+        }else if(t == 8){
+            Ext.create('Infosys_web.view.facturaelectronica.verEstadoDteConsumo', {idconsumo: r.data.id});     
+        }   
                  
     },
 
@@ -446,6 +460,13 @@ cargar_listado_contribuyentes: function(){
         var viewport = this.getPanelprincipal();
         viewport.removeAll();
         viewport.add({xtype: 'contribuyentesautorizados'});
+    },
+
+
+    mconsumofolios: function(){
+        var viewport = this.getPanelprincipal();
+        viewport.removeAll();
+        viewport.add({xtype: 'consumofolios'});
     },
 
     mhistlibrocompraventa: function(){
