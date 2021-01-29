@@ -830,8 +830,9 @@ public function consumo_folios_no_enviada(){
 
 							if($tipo_caf == 61){
 
+								$tipo_doc = $data_csv[0]->referencia > 20000 ? "factura" : "boleta";
 								$tipo_nota_credito = 1;
-            					$glosa = 'Anula factura  '. $data_csv[0]->referencia;								
+            					$glosa = 'Anula '. $tipo_doc . ' ' . $data_csv[0]->referencia;								
 
 
 								$factura = [
@@ -866,7 +867,7 @@ public function consumo_folios_no_enviada(){
 								    ],
 									'Detalle' => $lista_detalle,
 					                'Referencia' => [
-					                    'TpoDocRef' => $data_csv[0]->referencia > 100000 ? 30 : 33,
+					                    'TpoDocRef' => $data_csv[0]->referencia > 20000 ? 33 : 39,
 					                    'FolioRef' => $data_csv[0]->referencia,
 					                    'CodRef' => $tipo_nota_credito,
 					                    'RazonRef' => $glosa,
@@ -876,9 +877,9 @@ public function consumo_folios_no_enviada(){
 
 							}else if($tipo_caf == 56){
 
-
+								$tipo_doc = $data_csv[0]->referencia > 20000 ? "factura" : "boleta";
 								$tipo_nota_credito = 2;
-            					$glosa = 'Correccion factura  '. $data_csv[0]->referencia;								
+            					$glosa = 'Correccion '. $tipo_doc. ' ' . $data_csv[0]->referencia;								
 
 
 								$factura = [
@@ -914,7 +915,7 @@ public function consumo_folios_no_enviada(){
 								    ],
 									'Detalle' => $lista_detalle,
 					                'Referencia' => [
-					                    'TpoDocRef' => $data_csv[0]->referencia > 100000 ? 30 : 33,
+					                    'TpoDocRef' => $data_csv[0]->referencia > 20000 ? 33 : 39,
 					                    'FolioRef' => $data_csv[0]->referencia,
 					                    'CodRef' => $tipo_nota_credito,
 					                    'RazonRef' => $glosa,
