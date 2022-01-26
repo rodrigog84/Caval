@@ -1981,6 +1981,7 @@ public function cargacontribuyentes(){
         $tipo5 = 18; // FACTURA EXENTA
         $tipo6 = 103; // FACTURA EXENTA ELECTRONICA        
         $tipo7 = 120; // FACTURA EXENTA ELECTRONICA
+        $tipo8 = 105; // GUIA DE DESPACHO ELECTRÓNICA
 
         $countAll = $this->db->count_all_results("factura_clientes");
 		$data = array();
@@ -1993,7 +1994,7 @@ public function cargacontribuyentes(){
 			left join clientes c on (acc.id_cliente = c.id)
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join tipo_documento td on (acc.tipo_documento = td.id)
-			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.') and c.rut = '.$nombres.'
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.') and c.rut = '.$nombres.'
 			order by acc.id desc		
 			limit '.$start.', '.$limit.''		 
 
@@ -2023,7 +2024,7 @@ public function cargacontribuyentes(){
 			left join clientes c on (acc.id_cliente = c.id)
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join tipo_documento td on (acc.tipo_documento = td.id)
-			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.') ' . $sql_nombre . '
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.') ' . $sql_nombre . '
 			order by acc.id desc		
 			limit '.$start.', '.$limit.''
 						
@@ -2048,11 +2049,11 @@ public function cargacontribuyentes(){
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join correlativos co on (acc.tipo_documento = co.id)
 			left join tipo_documento td on (acc.tipo_documento = td.id)
-			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.')
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.')
 			order by acc.id desc'	
 			
 			);
-
+		
 
 			$total = 0;
 
@@ -2074,7 +2075,7 @@ public function cargacontribuyentes(){
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join correlativos co on (acc.tipo_documento = co.id)
 			left join tipo_documento td on (acc.tipo_documento = td.id)
-			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.')
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.')
 			order by acc.id desc		
 			limit '.$start.', '.$limit.''	
 

@@ -62,7 +62,7 @@ class Facturaelectronica extends CI_Model
 	public function ruta_certificado(){
 		$base_path = __DIR__;
 		$base_path = str_replace("\\", "/", $base_path);
-	//$path = $base_path . "/../../facturacion_electronica/certificado/certificado.pfx";		
+	//$path = $base_path . "/../../facturacion_electronica/certificado/certificado.p12";		
 		$path = "/var/www/html/Caval/core/facturacion_electronica/certificado/certificado.pfx";		
 		//echo $path; exit;
 		return $path;
@@ -351,9 +351,11 @@ public function consumo_folios_no_enviada(){
 	public function get_factura_no_enviada(){
 		$this->db->select('c.idfactura')
 		  ->from('folios_caf c ')
+		  ->join('caf a','c.idcaf = a.id')
 		  ->join('factura_clientes fc','c.idfactura = fc.id')
 		  ->where('c.trackid','0')
 		  ->where('c.idfactura <> 0')
+		  ->where('a.tipo_caf <> 39')
 		  ->where('c.estado','O');
 		$query = $this->db->get();
 		return $query->result();
@@ -718,7 +720,7 @@ public function consumo_folios_no_enviada(){
 
 		$query = $this->db->get();
 		$data_doctos = $query->result();
-
+		//var_dump($data_doctos); exit;
 
 		$config = $this->genera_config();
 		include $this->ruta_libredte();
@@ -735,10 +737,8 @@ public function consumo_folios_no_enviada(){
 		  			->where('folio',$docto->folio);
 			$query = $this->db->get();
 			$data_csv = $query->result();
-
-
 			$datos_folio = $this->get_content_caf_folio($docto->folio,$docto->tipocaf);
-
+		//	var_dump($datos_folio); exit;
 			if(count($datos_folio) > 0){
 				//SÓLO SE CARGA AQUELLOS FOLIOS QUE EXISTEN Y ESTÁN PENDIENTES O TOMADOS
 				if($datos_folio->estado == 'P' || $datos_folio->estado == 'T'){
@@ -824,7 +824,7 @@ public function consumo_folios_no_enviada(){
 				}// FIN REGCSV
 
 
-				if($tipodocumento == 101 || $tipodocumento == 102 || $tipodocumento == 103 || $tipodocumento == 104 || $tipodocumento == 120){  // SI ES FACTURA ELECTRONICA O NOTA DE CRÉDITO O FACTURA EXENTA ELECTRONICA O NOTA DE DEBITO
+				if($tipodocumento == 101 || $tipodocumento == 102 || $tipodocumento == 103 || $tipodocumento == 104 || $tipodocumento == 120 || $tipodocumento == 105){  // SI ES FACTURA ELECTRONICA O NOTA DE CRÉDITO O FACTURA EXENTA ELECTRONICA O NOTA DE DEBITO
 
 							$tipo_caf = $docto->tipocaf;
 
@@ -922,6 +922,44 @@ public function consumo_folios_no_enviada(){
 					                ] 									
 								];
 
+							}else if($tipo_caf == 52){
+
+								$factura = [
+								    'Encabezado' => [
+								        'IdDoc' => [
+								            'TipoDTE' => $docto->tipocaf,
+								            'Folio' => $docto->folio,
+								            'FchEmis' => $data_csv[0]->fechafactura,
+								            'IndTraslado' => 6 
+
+								        ],
+								        'Emisor' => [
+                                        'RUTEmisor' => $empresa->rut.'-'.$empresa->dv,
+                                        'RznSoc' => substr(permite_alfanumerico($empresa->razon_social),0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES,
+                                        'GiroEmis' => substr(permite_alfanumerico($empresa->giro),0,80), //LARGO DE GIRO DEL EMISOR NO PUEDE SER SUPERIOR A 80 CARACTERES
+                                        'Acteco' => $empresa->cod_actividad,
+                                        'DirOrigen' =>  substr(permite_alfanumerico($empresa->dir_origen),0,70), //LARGO DE DIRECCION DE ORIGEN NO PUEDE SER SUPERIOR A 70 CARACTERES
+                                        'CmnaOrigen' => substr(permite_alfanumerico($empresa->comuna_origen),0,20), //LARGO DE COMUNA DE ORIGEN NO PUEDE SER SUPERIOR A 20 CARACTERES
+                                   					],
+								        'Receptor' => [
+								            'RUTRecep' => $data_csv[0]->rut."-".$data_csv[0]->dv,
+								            'RznSocRecep' => substr(permite_alfanumerico($data_csv[0]->razonsocial),0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES
+								            'GiroRecep' => substr(permite_alfanumerico($data_csv[0]->giro),0,40),  //LARGO DEL GIRO NO PUEDE SER SUPERIOR A 40 CARACTERES
+								            'DirRecep' => substr(permite_alfanumerico($data_csv[0]->direccion),0,70), //LARGO DE DIRECCION NO PUEDE SER SUPERIOR A 70 CARACTERES
+								            'CmnaRecep' => substr(permite_alfanumerico($data_csv[0]->comuna),0,20), //LARGO DE COMUNA NO PUEDE SER SUPERIOR A 20 CARACTERES
+								        ],
+					                    /*'Totales' => [
+					                        // estos valores serán calculados automáticamente
+					                        'MntNeto' => $data_csv[0]->neto,
+					                        'TasaIVA' => \sasco\LibreDTE\Sii::getIVA(),
+					                        'IVA' => $data_csv[0]->iva,
+					                        'MntTotal' => $data_csv[0]->total,
+					                    ],*/ 									        
+								    ],
+									'Detalle' => $lista_detalle
+								];
+
+
 							}else{
 								$factura = [
 								    'Encabezado' => [
@@ -997,9 +1035,15 @@ public function consumo_folios_no_enviada(){
 							$EnvioDTE->setFirma($Firma);
 							$EnvioDTE->setCaratula($caratula);
 							$xml_dte = $EnvioDTE->generar();
-							//echo $xml_dte; 
-							//var_dump($EnvioDTE->schemaValidate()); exit;
-						//	print_r($xml_dte); exit;
+							/*echo $xml_dte; 
+							var_dump($EnvioDTE->schemaValidate()); 
+
+							  foreach (sasco\LibreDTE\Log::readAll() as $error)
+          echo $error,"\n";                  
+                  
+
+                  exit;
+						//	print_r($xml_dte); exit;*/
 							if ($EnvioDTE->schemaValidate()) { // REVISAR PORQUÉ SE CAE CON ESTA VALIDACION
 								
 								$track_id = 0;

@@ -441,7 +441,7 @@ class Facturaglosa extends CI_Controller {
 				$tipodocumento = $v->tipo_documento; 
 		}
 
-		if($tipodocumento ==  101 || $tipodocumento == 103 || $tipodocumento == 120){ // FACTURA ELECTRONICA O FACTURA EXENTA ELECTRONCA
+		if($tipodocumento ==  101 || $tipodocumento == 103 || $tipodocumento == 120|| $tipodocumento == 105){ // FACTURA ELECTRONICA O FACTURA EXENTA ELECTRONCA
 				//$es_cedible = is_null($cedible) ? false : true;
 				$this->load->model('facturaelectronica');
 				$this->facturaelectronica->exportFePDF($idfactura,'id');		
