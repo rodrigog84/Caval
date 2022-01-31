@@ -394,3 +394,13 @@ ALTER TABLE `empresa`
 UPDATE `empresa` SET `fec_inicio_boleta`='2020-09-01' WHERE  `id`=1;
 ALTER TABLE `folios_caf`
 	ADD COLUMN `id_consumo_folios` INT(11) NOT NULL AFTER `idfactura`;
+
+
+
+/****************************************************************/
+
+ALTER TABLE `guarda_csv`
+	ADD COLUMN `IndTraslado` INT NOT NULL DEFAULT 0 AFTER `oreferencia`;
+
+ALTER TABLE `factura_clientes`
+	ADD COLUMN `IndTraslado` INT NOT NULL DEFAULT 0 AFTER `oreferencia`;	

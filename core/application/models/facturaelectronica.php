@@ -690,6 +690,7 @@ public function consumo_folios_no_enviada(){
 			        					'referencia' => isset($datos[20]) ? $datos[20] : 0,
 			        					'vendedor' => isset($datos[21]) ? $datos[21] : "",
 			        					'oreferencia' => isset($datos[22]) ? $datos[22] : "",
+			        					'IndTraslado' => isset($datos[23]) ? $datos[23] : "",
 			        					//'unidadmedida' => isset($datos[23]) ? $datos[23] : "",
 			        					'codigoproceso' => $codproceso
 			        			);
@@ -731,7 +732,7 @@ public function consumo_folios_no_enviada(){
 			header('Content-type: text/plain; charset=ISO-8859-1');
 			
 
-			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia')
+			$this->db->select('tipocaf, folio, referencia, fechafactura, condicion, vendedor, rut, dv, razonsocial, giro, direccion, comuna, ciudad, cuenta, neto, iva, total, codigo, cantidad, unidad, nombre, preciounit, totaldetalle, oreferencia, IndTraslado')
 		  			->from('guarda_csv')
 		  			->where('tipocaf',$docto->tipocaf)
 		  			->where('folio',$docto->folio);
@@ -788,6 +789,7 @@ public function consumo_folios_no_enviada(){
 			        'id_factura' => $numfactura,
 			        'fecha_venc' => $data_csv[0]->fechafactura,
 			        'oreferencia' => $data_csv[0]->oreferencia,
+			        'IndTraslado' => $data_csv[0]->IndTraslado,
 			        'forma' => 1	          
 				);
 
@@ -930,7 +932,7 @@ public function consumo_folios_no_enviada(){
 								            'TipoDTE' => $docto->tipocaf,
 								            'Folio' => $docto->folio,
 								            'FchEmis' => $data_csv[0]->fechafactura,
-								            'IndTraslado' => 6 
+								            'IndTraslado' => $data_csv[0]->IndTraslado
 
 								        ],
 								        'Emisor' => [
