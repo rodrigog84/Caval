@@ -272,7 +272,10 @@ class Dte extends \sasco\LibreDTE\PDF
         $referencia = !empty($dte['Referencia']) ? $dte['Referencia'] : '';
             $this->agregarReferencia($referencia);
 
-       // $this->agregarOtrareferencia();
+        if($dte['Encabezado']['IdDoc']['TipoDTE'] == 33){
+                $this->agregarOtrareferencia();    
+        }
+        
 
         //AGREGAR RECUADRO PARA DATOS DEL DESTINATARIO
         $y = 53;
