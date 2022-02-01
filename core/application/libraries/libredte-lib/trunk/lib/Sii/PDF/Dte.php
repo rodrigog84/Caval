@@ -276,7 +276,12 @@ class Dte extends \sasco\LibreDTE\PDF
 
         //AGREGAR RECUADRO PARA DATOS DEL DESTINATARIO
         $y = 53;
-        $y = $dte['Encabezado']['IdDoc']['TipoDTE'] == 34 || $dte['Encabezado']['IdDoc']['TipoDTE'] == 61  || $dte['Encabezado']['IdDoc']['TipoDTE'] == 52 ? $y + 3 : $y;
+        if( $dte['Encabezado']['IdDoc']['TipoDTE'] == 34 || $dte['Encabezado']['IdDoc']['TipoDTE'] == 61  || $dte['Encabezado']['IdDoc']['TipoDTE'] == 52){
+            $y = $y + 3;
+        }else if($dte['Encabezado']['IdDoc']['TipoDTE'] == 39|| $dte['Encabezado']['IdDoc']['TipoDTE'] == 33 ){
+            $y = $y - 4;
+        }
+        //$y = $dte['Encabezado']['IdDoc']['TipoDTE'] == 34 || $dte['Encabezado']['IdDoc']['TipoDTE'] == 61  || $dte['Encabezado']['IdDoc']['TipoDTE'] == 52  ? $y + 3 : $y;
         $this->Rect(10, $y, 190, 33, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
 
 
