@@ -32,6 +32,8 @@ class Notadebito extends CI_Controller {
 		$fafecto = $this->input->post('afectofactura');
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
+
+
 		//$tipodocumento = 16;
 
 		$data3 = array(
@@ -151,8 +153,11 @@ class Notadebito extends CI_Controller {
             $config = $this->facturaelectronica->genera_config();
             include $this->facturaelectronica->ruta_libredte();
 
-            $tipo_nota_debito = 2; //tenemos sólo nota de crédito glosa
-            $glosa = 'Correccion factura '. $numfactura_asoc;
+
+			$tipo_nota_debito = 1;
+            $glosa = 'Correccion nota de crédito '. $numfactura_asoc;     
+            //$tipo_nota_debito = 2; //tenemos sólo nota de crédito glosa
+            //$glosa = 'Correccion factura '. $numfactura_asoc;
 
             $empresa = $this->facturaelectronica->get_empresa();
             $datos_empresa_factura = $this->facturaelectronica->get_empresa_factura($idfactura);
@@ -205,8 +210,9 @@ class Notadebito extends CI_Controller {
                 ],
                 'Detalle' => $lista_detalle,
                 'Referencia' => [
-                    'TpoDocRef' => 33,
-                    'FolioRef' => $numfactura,
+                    'TpoDocRef' => 61,
+                   // 'FolioRef' => $numfactura,
+                     'FolioRef' => $numfactura_asoc,
                     'CodRef' => $tipo_nota_debito,
                     'RazonRef' => $glosa,
                 ]               
