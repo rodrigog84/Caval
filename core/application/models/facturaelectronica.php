@@ -62,8 +62,8 @@ class Facturaelectronica extends CI_Model
 	public function ruta_certificado(){
 		$base_path = __DIR__;
 		$base_path = str_replace("\\", "/", $base_path);
-	//$path = $base_path . "/../../facturacion_electronica/certificado/certificado.p12";		
-		$path = "/var/www/html/Caval/core/facturacion_electronica/certificado/certificado.pfx";		
+	$path = $base_path . "/../../facturacion_electronica/certificado/certificado.p12";		
+		//$path = "/var/www/html/Caval/core/facturacion_electronica/certificado/certificado.pfx";		
 		//echo $path; exit;
 		return $path;
 	}
@@ -879,8 +879,9 @@ public function consumo_folios_no_enviada(){
 
 							}else if($tipo_caf == 56){
 
-								$tipo_doc = $data_csv[0]->referencia > 20000 ? "factura" : "boleta";
-								$tipo_nota_credito = 2;
+								//$tipo_doc = $data_csv[0]->referencia > 20000 ? "factura" : "boleta";
+								$tipo_doc = "nota de crédito";
+								$tipo_nota_credito = 1;
             					$glosa = 'Correccion '. $tipo_doc. ' ' . $data_csv[0]->referencia;								
 
 
@@ -917,7 +918,8 @@ public function consumo_folios_no_enviada(){
 								    ],
 									'Detalle' => $lista_detalle,
 					                'Referencia' => [
-					                    'TpoDocRef' => $data_csv[0]->referencia > 20000 ? 33 : 39,
+					                    //'TpoDocRef' => $data_csv[0]->referencia > 20000 ? 33 : 39,
+					                    'TpoDocRef' => 61,
 					                    'FolioRef' => $data_csv[0]->referencia,
 					                    'CodRef' => $tipo_nota_credito,
 					                    'RazonRef' => $glosa,
