@@ -998,6 +998,7 @@ cargar_listado_contribuyentes: function(){
         var view = this.getFacturasprincipal();
         if (view.getSelectionModel().hasSelection()) {
             var row = view.getSelectionModel().getSelection()[0];
+            //console.log(row)
             if (row.data.id_factura==0){
                 if (row.data.forma==0){
                     window.open(preurl +'facturas/exportPDF/?idfactura=' + row.data.id)
@@ -1005,7 +1006,13 @@ cargar_listado_contribuyentes: function(){
                     window.open(preurl + 'facturaglosa/exportfacturaglosaPDF/?idfactura='+row.data.id);
                 }
             }else{
-                window.open(preurl +'facturas/exportlotePDF/?idfactura=' + row.data.id)
+
+                if(row.data.tipo_documento == 105){
+                    window.open(preurl + 'facturaglosa/exportfacturaglosaPDF/?idfactura='+row.data.id);
+                }else{
+                    window.open(preurl +'facturas/exportlotePDF/?idfactura=' + row.data.id)    
+                }
+                
             }
         }else{
             Ext.Msg.alert('Alerta', 'Selecciona un registro.');

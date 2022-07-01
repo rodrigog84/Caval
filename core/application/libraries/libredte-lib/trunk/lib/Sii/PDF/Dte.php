@@ -269,12 +269,27 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->agregarVendedor();
         
         //if (!empty($dte['Referencia']))
-        $referencia = !empty($dte['Referencia']) ? $dte['Referencia'] : '';
-            $this->agregarReferencia($referencia);
+        //var_dump($dte['Encabezado']['IdDoc']['TipoDTE']);
+        //var_dump($dte['Referencia']);
+        $guiaservicios = false;
+        if($dte['Encabezado']['IdDoc']['TipoDTE'] == 52 && !empty($dte['Referencia'])){ // guia de servicios
+             $this->agregarReferenciaGuiaServicios($dte['Referencia']);
+             $guiaservicios =true;
 
-        if($dte['Encabezado']['IdDoc']['TipoDTE'] == 33){
-                $this->agregarOtrareferencia();    
+        }else{
+
+            $referencia = !empty($dte['Referencia']) ? $dte['Referencia'] : '';
+                $this->agregarReferencia($referencia);
+
+            if($dte['Encabezado']['IdDoc']['TipoDTE'] == 33){
+                    $this->agregarOtrareferencia();    
+            }
+
+
         }
+
+
+
         
 
         //AGREGAR RECUADRO PARA DATOS DEL DESTINATARIO
@@ -288,7 +303,8 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->Rect(10, $y, 190, 33, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
 
 
-        $this->agregarDetalle($dte['Detalle']);
+
+        $this->agregarDetalle($dte['Detalle'],10,$guiaservicios);
         if (!empty($dte['DscRcgGlobal']))
             $this->agregarDescuentosRecargos($dte['DscRcgGlobal']);
         $this->agregarTotales($dte['Encabezado']['Totales']);
@@ -674,6 +690,26 @@ class Dte extends \sasco\LibreDTE\PDF
         }
     }
 
+
+    private function agregarReferenciaGuiaServicios($referencias, $x = 10, $offset = 22)
+    {
+
+        $vacio = empty($referencias);
+        if (!isset($referencias[0]))
+            $referencias = [$referencias];
+        foreach($referencias as $r) {
+            $texto = $vacio ? "" : $r['NroLinRef'].' - Factura N° '.$r['FolioRef'];
+            if (isset($r['RazonRef']) and $r['RazonRef']!==false)
+                $texto = $texto.': '.$r['RazonRef'];
+            $this->setFont('', 'B', 8);
+            $this->Texto('Referenc.', $x);
+            $this->Texto(':', $x+$offset);
+            $this->setFont('', 'C', 8);
+            $this->MultiTexto($texto, $x+$offset+2);
+        }
+    }
+
+
     /**
      * Método que agrega las referencias del documento
      * @param referencias Arreglo con las referencias del documento (tag Referencia del XML)
@@ -707,7 +743,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2025-12-25
      */
-    private function agregarDetalle($detalle, $x = 10)
+    private function agregarDetalle($detalle, $x = 10,$guiaservicios = false)
     {
         if (!isset($detalle[0]))
             $detalle = [$detalle];
@@ -717,6 +753,7 @@ class Dte extends \sasco\LibreDTE\PDF
         foreach ($this->detalle_cols as $key => $info) {
             $titulos[$key] = $info['title'];
         }
+        //QtyItem
         // normalizar cada detalle
         foreach ($detalle as &$item) {
             // quitar columnas
@@ -735,12 +772,19 @@ class Dte extends \sasco\LibreDTE\PDF
             // si hay código de item se extrae su valor
             if ($item['CdgItem'])
                 $item['CdgItem'] = $item['CdgItem']['VlrCodigo'];
+
+
+            if ($item['QtyItem'] && $guiaservicios)
+                $item['QtyItem'] ='0';
+
+
             // dar formato a números
             foreach (['QtyItem', 'PrcItem', 'DescuentoMonto', 'RecargoMonto', 'MontoItem'] as $col) {
                 if ($item[$col])
                     $item[$col] = $this->num($item[$col]);
             }
         }
+
         // opciones
         $options = ['align'=>[]];
         $i = 0;
@@ -750,6 +794,11 @@ class Dte extends \sasco\LibreDTE\PDF
             $options['align'][$i] = $info['align'];
             $i++;
         }
+        //echo '<pre>';
+         //      var_dump($titulos);
+        //var_dump($detalle);
+        //var_dump($options);
+
         // agregar tabla de detalle
         $this->Ln();
         $this->SetX($x);
