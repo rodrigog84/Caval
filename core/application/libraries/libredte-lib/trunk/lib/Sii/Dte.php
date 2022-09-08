@@ -636,11 +636,30 @@ class Dte
                 ],
                 'Receptor' => false,
                 'Totales' => [
+                    'MntNeto' => false,
                     'MntExe' => false,
+                    'IVA' => false,
                     'MntTotal' => 0,
                 ]
             ],
         ], $datos);
+        // normalizar datos
+        $this->normalizar_boletas($datos);
+        $this->normalizar_detalle($datos);
+        $this->normalizar_aplicar_descuentos_recargos($datos);
+        $this->normalizar_agregar_IVA_MntTotal($datos);
+    }
+
+
+
+    /**
+     * Método que normaliza las boletas electrónicas, dte 39 y 41
+     * @param datos Arreglo con los datos del documento que se desean normalizar
+     * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
+     * @version 2016-07-13
+     */
+    private function normalizar_boletas(array &$datos)
+    {
         // cambiar tags de DTE a boleta si se pasaron
         if ($datos['Encabezado']['Emisor']['RznSoc']) {
             $datos['Encabezado']['Emisor']['RznSocEmisor'] = $datos['Encabezado']['Emisor']['RznSoc'];
@@ -651,11 +670,16 @@ class Dte
             $datos['Encabezado']['Emisor']['GiroEmis'] = false;
         }
         $datos['Encabezado']['Emisor']['Acteco'] = false;
-        // normalizar datos
-        $this->normalizar_detalle($datos);
-        $this->normalizar_aplicar_descuentos_recargos($datos);
-        $this->normalizar_agregar_IVA_MntTotal($datos);
+        $datos['Encabezado']['Emisor']['Telefono'] = false;
+        $datos['Encabezado']['Emisor']['CorreoEmisor'] = false;
+        $datos['Encabezado']['Emisor']['CdgVendedor'] = false;
+        $datos['Encabezado']['Receptor']['GiroRecep'] = false;
+        $datos['Encabezado']['Receptor']['CorreoRecep'] = false;
+        // quitar otros tags que no son parte de las boletas
+        $datos['Encabezado']['IdDoc']['FmaPago'] = false;
+        $datos['Encabezado']['IdDoc']['FchCancel'] = false;
     }
+    
 
     /**
      * Método que normaliza los datos de una guía de despacho electrónica

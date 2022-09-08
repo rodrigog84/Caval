@@ -62,7 +62,7 @@ class Facturaelectronica extends CI_Model
 	public function ruta_certificado(){
 		$base_path = __DIR__;
 		$base_path = str_replace("\\", "/", $base_path);
-	$path = $base_path . "/../../facturacion_electronica/certificado/certificado.p12";		
+	$path = $base_path . "/../../facturacion_electronica/certificado/certificado.pfx";		
 		//$path = "/var/www/html/Caval/core/facturacion_electronica/certificado/certificado.pfx";		
 		//echo $path; exit;
 		return $path;
@@ -335,6 +335,7 @@ public function consumo_folios_no_enviada(){
 		  ->where('f.idfactura',$idfactura)
 		  ->limit(1);
 		$query = $this->db->get();
+		//echo $this->db->last_query(); exit;
 		return $query->row();
 	}
 
@@ -347,6 +348,45 @@ public function consumo_folios_no_enviada(){
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	public function get_boleta_no_enviada_casos_puntuales()
+    {
+        // envia todo excepto boletas que se envían aparte
+        $facturas = $this->db->select('c.idfactura')
+            ->from('folios_caf c ')
+            ->join('factura_clientes fc', 'c.idfactura = fc.id')
+            ->join('caf f', 'c.idcaf = f.id')
+            ->where('c.trackid', '0')
+            ->where('c.idfactura <> 0')
+            ->where('c.estado', 'O')
+            ->where("left(c.updated_at,10) >= '2022-08-01'")
+            ->where_in('c.folio',array('12917','12918','12919'))
+            ->where('f.tipo_caf = 39');
+
+        $query = $facturas->get();
+        return $query->result();
+    } 
+
+
+
+	public function get_boleta_no_enviada()
+    {
+        // envia todo excepto boletas que se envían aparte
+        $facturas = $this->db->select('c.idfactura')
+            ->from('folios_caf c ')
+            ->join('factura_clientes fc', 'c.idfactura = fc.id')
+            ->join('caf f', 'c.idcaf = f.id')
+            ->where('c.trackid', '0')
+            ->where('c.idfactura <> 0')
+            ->where('c.estado', 'O')
+            ->where("left(c.updated_at,10) >= '2022-08-01'")
+            ->where('f.tipo_caf = 39');
+
+        $query = $facturas->get();
+        return $query->result();
+    } 
+
+
 
 	public function get_factura_no_enviada(){
 		$this->db->select('c.idfactura')
@@ -695,6 +735,7 @@ public function consumo_folios_no_enviada(){
 			        					'codigoproceso' => $codproceso
 			        			);
 
+
 			        $this->db->insert('guarda_csv',$array_data);
 
 			        /*for ($c=0; $c < $numero; $c++) {
@@ -881,6 +922,44 @@ public function consumo_folios_no_enviada(){
 					                ] 									
 								];
 
+
+							
+							}else if($tipo_caf == 39){
+
+								$factura = [
+								    'Encabezado' => [
+								        'IdDoc' => [
+								            'TipoDTE' => $docto->tipocaf,
+								            'Folio' => $docto->folio,
+								            'FchEmis' => $data_csv[0]->fechafactura
+								        ],
+								        'Emisor' => [
+                                        'RUTEmisor' => $empresa->rut.'-'.$empresa->dv,
+                                        'RznSoc' => substr(permite_alfanumerico($empresa->razon_social),0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES,
+                                        'GiroEmis' => substr(permite_alfanumerico($empresa->giro),0,80), //LARGO DE GIRO DEL EMISOR NO PUEDE SER SUPERIOR A 80 CARACTERES
+                                        'Acteco' => $empresa->cod_actividad,
+                                        'DirOrigen' =>  substr(permite_alfanumerico($empresa->dir_origen),0,70), //LARGO DE DIRECCION DE ORIGEN NO PUEDE SER SUPERIOR A 70 CARACTERES
+                                        'CmnaOrigen' => substr(permite_alfanumerico($empresa->comuna_origen),0,20), //LARGO DE COMUNA DE ORIGEN NO PUEDE SER SUPERIOR A 20 CARACTERES
+                                   					],
+								        'Receptor' => [
+								            'RUTRecep' => $data_csv[0]->rut."-".$data_csv[0]->dv,
+								            'RznSocRecep' => substr(permite_alfanumerico($data_csv[0]->razonsocial),0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES
+								            'GiroRecep' => substr(permite_alfanumerico($data_csv[0]->giro),0,40),  //LARGO DEL GIRO NO PUEDE SER SUPERIOR A 40 CARACTERES
+								            'DirRecep' => substr(permite_alfanumerico($data_csv[0]->direccion),0,70), //LARGO DE DIRECCION NO PUEDE SER SUPERIOR A 70 CARACTERES
+								            'CmnaRecep' => substr(permite_alfanumerico($data_csv[0]->comuna),0,20), //LARGO DE COMUNA NO PUEDE SER SUPERIOR A 20 CARACTERES
+								        ],
+					                    'Totales' => [
+					                        // estos valores serán calculados automáticamente
+					                        'MntNeto' => $data_csv[0]->neto,
+					                        //'TasaIVA' => \sasco\LibreDTE\Sii::getIVA(),
+					                        'IVA' => $data_csv[0]->iva,
+					                        //'MntTotal' => $data_csv[0]->total,
+					                    ], 									        
+								    ],
+									'Detalle' => $lista_detalle
+								];
+
+						
 
 							}else if($tipo_caf == 56){
 
@@ -1100,8 +1179,8 @@ public function consumo_folios_no_enviada(){
           echo $error,"\n";                  
                   
 
-                  exit;
-						//	print_r($xml_dte); exit;*/
+                  exit;*/
+						//	print_r($xml_dte); exit;
 							if ($EnvioDTE->schemaValidate()) { // REVISAR PORQUÉ SE CAE CON ESTA VALIDACION
 								
 								$track_id = 0;
@@ -1308,8 +1387,51 @@ public function consumo_folios_no_enviada(){
 			];
 
 
-		}else{
+		}else if($tipo_caf == 39){
+			//var_dump($data_factura); exit;
+			//var_dump($data_factura); exit;
 			// datos
+			$factura = [
+			    'Encabezado' => [
+			        'IdDoc' => [
+			            'TipoDTE' => $tipo_caf,
+			            'Folio' => $numfactura,
+			            'FchEmis' => $fecemision
+			        ],
+			        'Emisor' => [
+			            'RUTEmisor' => $empresa->rut.'-'.$empresa->dv,
+			            'RznSoc' => substr($empresa->razon_social,0,100), //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES
+			            'GiroEmis' => substr($empresa->giro,0,80), //LARGO DE GIRO DEL EMISOR NO PUEDE SER SUPERIOR A 80 CARACTERES
+			            'Acteco' => $empresa->cod_actividad,
+			            'DirOrigen' => substr($empresa->dir_origen,0,70), //LARGO DE DIRECCION DE ORIGEN NO PUEDE SER SUPERIOR A 70 CARACTERES
+			            'CmnaOrigen' => substr($empresa->comuna_origen,0,20), //LARGO DE COMUNA DE ORIGEN NO PUEDE SER SUPERIOR A 20 CARACTERES
+			        ],
+			        'Receptor' => [
+			            'RUTRecep' => '1-9',
+			            'RznSocRecep' => 'CLIENTES VARIOS', //LARGO DE RAZON SOCIAL NO PUEDE SER SUPERIOR A 100 CARACTERES
+			           // 'GiroRecep' => substr($datos_empresa_factura->giro,0,35),  //LARGO DEL GIRO NO PUEDE SER SUPERIOR A 40 CARACTERES
+			            'DirRecep' => 'SAN CLEMENETE', //LARGO DE DIRECCION NO PUEDE SER SUPERIOR A 70 CARACTERES
+			            'CmnaRecep' => 'SAN CLEMENTE', //LARGO DE COMUNA NO PUEDE SER SUPERIOR A 20 CARACTERES
+			        ],
+		           /* 'Totales' => [
+		                // estos valores serán calculados automáticamente
+		                'MntNeto' => $data_factura->neto,
+		                'TasaIVA' => \sasco\LibreDTE\Sii::getIVA(),
+		                'IVA' => $data_factura->iva,
+		                //'MntTotal' => $data_factura->totalfactura,
+		            ],*/	
+		            'Totales' => [
+		                // estos valores serán calculados automáticamente
+		                'MntNeto' => $data_factura->neto,
+		                'IVA' => $data_factura->iva
+		                //'MntTotal' => $data_factura->totalfactura,
+		            ]				        
+			    ],
+				'Detalle' => $lista_detalle
+			];
+
+		}else{
+
 			$factura = [
 			    'Encabezado' => [
 			        'IdDoc' => [
@@ -1335,6 +1457,8 @@ public function consumo_folios_no_enviada(){
 			    ],
 				'Detalle' => $lista_detalle
 			];
+
+
 
 		}
 
@@ -1365,8 +1489,20 @@ public function consumo_folios_no_enviada(){
 		$EnvioDTE->agregar($DTE);
 		$EnvioDTE->setFirma($Firma);
 		$EnvioDTE->setCaratula($caratula);
-		$EnvioDTE->generar();		
+		$xml_dte = $EnvioDTE->generar();
+		/*var_dump($xml_dte); 
+		//var_dump($EnvioDTE->schemaValidate());
+                 var_dump($EnvioDTE->schemaValidate()); 
 
+  foreach (sasco\LibreDTE\Log::readAll() as $error)
+          echo $error,"\n";                  
+                  
+
+                  exit;
+          
+
+
+		exit;*/
 		if ($EnvioDTE->schemaValidate()) { // REVISAR PORQUÉ SE CAE CON ESTA VALIDACION
 			
 			$track_id = 0;
