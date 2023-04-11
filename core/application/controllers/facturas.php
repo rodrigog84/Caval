@@ -1995,9 +1995,7 @@ public function cargacontribuyentes(){
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join tipo_documento td on (acc.tipo_documento = td.id)
 			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.') and c.rut = '.$nombres.'
-			order by acc.id desc		
-			limit '.$start.', '.$limit.''		 
-
+			order by acc.id desc'
 		);
 
 		$total = 0;
@@ -2009,6 +2007,14 @@ public function cargacontribuyentes(){
 			}
 
 			$countAll = $total;
+
+			$query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor, td.descripcion as tipo_doc FROM factura_clientes acc
+			left join clientes c on (acc.id_cliente = c.id)
+			left join vendedores v on (acc.id_vendedor = v.id)
+			left join tipo_documento td on (acc.tipo_documento = td.id)
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.') and c.rut = '.$nombres.'
+			order by acc.id desc		
+			limit '.$start.', '.$limit.'');					
 
 	    }else if($opcion == "Nombre"){
 
@@ -2025,8 +2031,7 @@ public function cargacontribuyentes(){
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join tipo_documento td on (acc.tipo_documento = td.id)
 			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.') ' . $sql_nombre . '
-			order by acc.id desc		
-			limit '.$start.', '.$limit.''
+			order by acc.id desc'
 						
 			);
 
@@ -2039,6 +2044,14 @@ public function cargacontribuyentes(){
 			}
 
 			$countAll = $total;
+
+			$query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor, td.descripcion as tipo_doc	FROM factura_clientes acc
+			left join clientes c on (acc.id_cliente = c.id)
+			left join vendedores v on (acc.id_vendedor = v.id)
+			left join tipo_documento td on (acc.tipo_documento = td.id)
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.') ' . $sql_nombre . '
+			order by acc.id desc		
+			limit '.$start.', '.$limit.'');					
 	 
 		}else if($opcion == "Todos"){
 
@@ -2065,6 +2078,14 @@ public function cargacontribuyentes(){
 
 			$countAll = $total;
 	
+				$query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, co.nombre as nombre_docu, v.nombre as nom_vendedor, acc.tipo_documento as id_tip_docu, td.descripcion as tipo_doc	FROM factura_clientes acc
+			left join clientes c on (acc.id_cliente = c.id)
+			left join vendedores v on (acc.id_vendedor = v.id)
+			left join correlativos co on (acc.tipo_documento = co.id)
+			left join tipo_documento td on (acc.tipo_documento = td.id)
+			WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.','.$tipo4.','.$tipo5.','.$tipo6.','.$tipo7.','.$tipo8.')
+			order by acc.id desc	
+			limit '.$start.', '.$limit.'');		
 
 		}else{
 
